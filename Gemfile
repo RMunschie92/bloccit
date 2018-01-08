@@ -46,4 +46,6 @@ source 'https://rubygems.org'
    gem 'rails-controller-testing'
  end
 
+ gem 'pry-rails', :group => :development
+
  gem 'bootstrap-sass'
