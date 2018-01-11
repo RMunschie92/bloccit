@@ -27,4 +27,7 @@ module RandomData
      letters[0,rand(3..8)].join
    end
 
- end
+   def self.random_price
+     dollars = rand(5..50)
+   end
+end
