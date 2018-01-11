@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Question, type: :model do
-  let(:question) { question.create!(title: "Question title", body: "Question content", resolved:"false") }
+  let(:question) { Question.create!(title: "My Question title", body: "My Question Body", resolved: false ) }
 
   describe "attributes" do
-    it "has a body attribute" do
-      expect(question).to have_attributes(body: "Question content")
+    it "has title, body, and resolved attributes" do
+      expect(question).to have_attributes(title: "My Question title", body: "My Question Body", resolved: false)
     end
   end
+
 end
