@@ -48,3 +48,6 @@ source 'https://rubygems.org'
  end
 
  gem 'bootstrap-sass'
+
+ #used for encrypting passwords
+ gem 'bcrypt'
