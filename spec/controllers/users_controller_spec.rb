@@ -60,4 +60,8 @@ RSpec.describe UsersController, type: :controller do
        expect(assigns(:user).password_confirmation).to eq new_user_attributes[:password_confirmation]
      end
    end
+   # 
+   # describe "POST confirm" do
+   #   it "returns an http redirect" do
+   # end
 end
