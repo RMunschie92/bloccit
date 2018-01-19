@@ -17,7 +17,9 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
 
-    if @topic.save
+    if current_user.moderator? && @topic.save
+      render :index
+    elsif @topic.save
       redirect_to @topic, notice: "Topic was saved successfully."
     else
       flash.now[:alert] = "Error creating topic. Please try again."
@@ -60,8 +62,8 @@ class TopicsController < ApplicationController
   end
 
   def authorize_user
-    unless current_user.admin?
-      flash[:alert] = "You must be an admin to do that"
+    unless current_user.admin? || current_user.moderator?
+      flash[:alert] = "You must be an admin or a moderator to do that"
       redirect_to topics_path
     end
   end
