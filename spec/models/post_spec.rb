@@ -73,5 +73,15 @@ RSpec.describe Post, type: :model do
         expect(post.rank).to eq (old_rank - 1)
       end
     end
+
+    describe "create_vote callback" do
+      it "triggers create_vote on create" do
+        expect(post).to receive(:create_vote).at_least(:once)
+      end
+
+      it "create_vote should call @up_vote on post" do
+        expect(vote).to receive(:up_vote).at_least(:once)
+      end
+    end
   end
 end
