@@ -12,6 +12,8 @@ RSpec.describe Post, type: :model do
 
   it { is_expected.to have_many(:comments) }
   it { is_expected.to have_many(:votes) }
+  it { is_expected.to have_many(:favorites) }
+
   it { is_expected.to belong_to(:topic) }
   it { is_expected.to belong_to(:user) }
 
@@ -71,16 +73,6 @@ RSpec.describe Post, type: :model do
         old_rank = post.rank
         post.votes.create!(value: -1, user: user)
         expect(post.rank).to eq (old_rank - 1)
-      end
-    end
-
-    describe "create_vote callback" do
-      it "triggers create_vote on create" do
-        expect(post).to receive(:create_vote).at_least(:once)
-      end
-
-      it "create_vote should call @up_vote on post" do
-        expect(vote).to receive(:up_vote).at_least(:once)
       end
     end
   end
