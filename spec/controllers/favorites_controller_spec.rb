@@ -60,6 +60,6 @@ RSpec.describe FavoritesController, type: :controller do
         delete :destroy, params: { post_id: my_post.id, id: favorite.id }
         expect( my_user.favorites.find_by_post_id(my_post.id) ).to be_nil
       end
-    end 
+    end
   end
 end
