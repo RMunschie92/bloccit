@@ -46,7 +46,7 @@ posts = Post.all
   )
 end
 
-# Create an admin user
+# # Create an admin user
 admin = User.create!(
   name: 'Admin User',
   email: 'admin@example.com',
@@ -54,7 +54,7 @@ admin = User.create!(
   role: 'admin'
 )
 
-# Create a member
+# # Create a member
 member = User.create!(
   name: 'Member User',
   email: 'member@example.com',
