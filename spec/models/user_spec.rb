@@ -109,5 +109,14 @@ RSpec.describe User, type: :model do
        expected_gravatar = "http://gravatar.com/avatar/bb6d1172212c180cfbdb7039129d7b03.png?s=48"
        expect(known_user.avatar_url(48)).to eq(expected_gravatar)
      end
-   end
+  end
+
+  describe "#show_favorites" do
+    let(:known_user) { create(:user, email: "blochead@bloc.io") }
+
+    it "returns a list of user's favorited posts" do
+      favorites_list = known_user.favorites
+      expect(known_user.favorites.length).to eq(user.favorites.length)
+    end
+  end
 end
